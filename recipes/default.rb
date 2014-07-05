@@ -1,4 +1,6 @@
-package "git"
+include_recipe "pgd::packages"
+include_recipe "python"
+include_recipe "git"
 
 log "Hello Beautiful World"
 
@@ -9,4 +11,3 @@ directory "/tmp/folder" do
   action :create
 end
 
-include_recipe "pgd::packages"

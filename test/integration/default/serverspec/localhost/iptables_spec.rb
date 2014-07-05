@@ -25,3 +25,6 @@ end
     end
 end
 
+describe command('python2.7 --version') do
+  it { should  return_stdout 'Python 2.7.1' }
+end

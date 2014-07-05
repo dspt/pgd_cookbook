@@ -35,4 +35,6 @@ platforms:
 suites:
   - name: default
     run_list:
+     - recipe[yum]
+     - recipe[git]
      - recipe[pgd::default]

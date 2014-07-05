@@ -16,7 +16,11 @@ default['pgd']['debug'] = false
 default['pgd']['migrate'] = false
 default['pgd']['site_domain'] = node['fqdn']
 
-default['pgd']['packages'] = "git"
+default['python']["prefix_dir"] = "/opt/python"
+default['python']['install_method'] = "source"
+default['python']['version'] = "2.7.1"
+default['python']['checksum'] = "80e387bcf57eae8ce26726753584fd63e060ec11682d1145af921e85fd612292"
+
 
 default['pgd']['database']['engine'] = nil
 # Load the DB Credentials using the databag as defaults.
