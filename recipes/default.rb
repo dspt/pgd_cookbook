@@ -25,7 +25,8 @@ python_virtualenv node['pgd']['virtualenv'] do
   action :create
 end
 
-python_pip "django" do
-  version "1.4"
+python_pip "/var/www/pgd/pgd/requirements.txt" do
+  options "-r"
   virtualenv node['pgd']['virtualenv']
+  action :install
 end
