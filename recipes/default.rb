@@ -1,6 +1,7 @@
 include_recipe "pgd::packages"
 include_recipe "yum"
 include_recipe "python"
+include_recipe "python::pip"
 include_recipe "git"
 
 # Check directory for cloning
