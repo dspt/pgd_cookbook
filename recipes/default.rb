@@ -19,6 +19,12 @@ git node['pgd']['path'] do
   group node['pgd']['group']
 end
 
+python_virtualenv node['pgd']['virtualenv'] do
+  owner node['pgd']['owner']
+  group node['pgd']['group']
+  action :create
+end
+
 python_pip "django" do
   version "1.4"
   virtualenv node['pgd']['virtualenv']
