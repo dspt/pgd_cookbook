@@ -9,3 +9,9 @@ end
 describe command('/opt/python/bin/python2.7 --version') do
   it { should  return_stdout 'Python 2.7.1' }
 end
+
+describe command('/var/www/pgd/.venv/bin/python --version') do
+  it { should  return_stdout 'Python 2.7.1' }
+end
+
+
