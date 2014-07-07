@@ -1,4 +1,5 @@
 name "pgd"
-version "0.2.0"
-
+version "0.3.0"
+depends "yum"
 depends "python"
+depends "git"
