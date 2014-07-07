@@ -9,6 +9,7 @@ default['pgd']['github_user'] = "git"
 default['pgd']['install_dir'] = '/var/www/pgd'
 default['pgd']['config_dir'] = '/var/www/pgd/config'
 
+default['python']['binary'] = '/opt/python/bin/python2.7'
 default['python']['install_method'] = "source"
 default['python']['prefix_dir'] = "/opt/python"
 default['python']['url'] = 'http://www.python.org/ftp/python'
