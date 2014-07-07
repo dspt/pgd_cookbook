@@ -18,3 +18,8 @@ git node['pgd']['path'] do
   user node['pgd']['owner']
   group node['pgd']['group']
 end
+
+python_pip "django" do
+  version "1.4"
+  virtualenv node['pgd']['virtualenv']
+end
