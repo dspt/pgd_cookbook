@@ -1,4 +1,5 @@
 default['pgd']['path'] = "/var/www/pgd"
+default['pgd']['virtualenv'] = "/var/www/pgd/.venv"
 default['pgd']['user'] = 'pgd'
 default['pgd']['group'] = nil
 
