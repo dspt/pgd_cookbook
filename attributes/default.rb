@@ -1,5 +1,6 @@
 default['pgd']['path'] = "/var/www/pgd"
 default['pgd']['virtualenv'] = "/var/www/pgd/.venv"
+default['pgd']['requirements.txt'] = "/var/www/pgd/pgd/requirements.txt"
 default['pgd']['user'] = 'pgd'
 default['pgd']['group'] = nil
 
@@ -28,6 +29,4 @@ default['pgd']['database']['port'] = nil
 # secrets
 
 default['pgd']['secret_key'] = nil
-
-default['pgd']['db_server']['user'] = nil
-default['pgd']['db_server']['password'] = nil
+default['pgd']['google_id'] = nil

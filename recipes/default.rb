@@ -25,7 +25,7 @@ python_virtualenv node['pgd']['virtualenv'] do
   action :create
 end
 
-python_pip "/var/www/pgd/pgd/requirements.txt" do
+python_pip node['pgd']['requirements.txt'] do
   options "-r"
   virtualenv node['pgd']['virtualenv']
   action :install
