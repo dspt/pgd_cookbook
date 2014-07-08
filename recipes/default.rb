@@ -1,5 +1,6 @@
 include_recipe "pgd::packages"
 include_recipe "yum"
+include_recipe "nginx"
 include_recipe "python"
 include_recipe "python::pip"
 include_recipe "git"
@@ -67,7 +68,7 @@ template config_file do
 end
 
 django_admin = ::File.join(node['pgd']['virtualenv'], '/bin/django-admin.py')
-django_version = `#{django_admin} --version`
+#django_version = `#{django_admin} --version`
 
 if django_version.chomp == "1.3.7"
   python_pip 'django-registration' do
@@ -117,3 +118,15 @@ python_pip 'gunicorn' do
 end
 
 package 'nginx'
+
+server_name = 'pgd' 
+template "#{node['nginx']['dir']}/sites-available/#{server_name}.conf" do
+  source "nginx.conf.erb"
+  owner "root"
+  group "root"
+  mode 00644
+end
+
+nginx_site "#{server_name}.conf" do
+  :enable
+end
