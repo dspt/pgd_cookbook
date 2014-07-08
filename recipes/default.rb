@@ -68,7 +68,7 @@ template config_file do
 end
 
 django_admin = ::File.join(node['pgd']['virtualenv'], '/bin/django-admin.py')
-#django_version = `#{django_admin} --version`
+django_version = nil # `#{django_admin} --version`
 
 if django_version.chomp == "1.3.7"
   python_pip 'django-registration' do
