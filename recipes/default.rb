@@ -31,7 +31,17 @@ python_pip node['pgd']['requirements.txt'] do
   action :install
 end
 
-settings = Chef::EncryptedDataBagItem.load("pgd", "settings")
+settings = Chef::EncryptedDataBagItem.load("pgd", "settings.py")
+
+database_engine = node['pgd']['database']['engine'] || settings['database_engine']
+database_name = node['pgd']['database']['name'] || settings['database_name']
+database_user = node['pgd']['database']['user'] || settings['database_user']
+database_password = node['pgd']['database']['password'] || settings['database_password']
+database_host = node['pgd']['database']['host'] || settings['database_host']
+database_port = node['pgd']['database']['port'] || settings['database_port']
+
+secret_key = node['pgd']['secret_key'] || settings['secret_key']
+google_id = node['pgd']['google_id'] || settings['google_id']
 
 config_file = ::File.join(node['pgd']['config_dir'], 'settings.py')
 template config_file do
