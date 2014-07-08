@@ -69,4 +69,8 @@ end
 django_admin = ::File.join(node['pgd']['virtualenv'], '/bin/django-admin.py')
 django_version = `#{django_admin} --version`
 
-log django_version
+case django_version
+  when "1.3.7"
+    log django_version
+  when !"1.3.7"
+end
