@@ -103,7 +103,7 @@ else
   # A couple more things to import from Jack's install_pgd.sh
 end
 
-config_file = ::File.join(node['pgd']['config_dir'], 'gunicorn.py')
+config_file = ::File.join(node['pgd']['config_dir'], 'gunicorn_config.py')
 template config_file do
   source "gunicorn.py.erb"
   owner node['pgd']['user']
