@@ -70,7 +70,25 @@ django_admin = ::File.join(node['pgd']['virtualenv'], '/bin/django-admin.py')
 django_version = `#{django_admin} --version`
 
 if django_version.chomp == "1.3.7"
-  log "1.3.7 ********************"
+  python_pip 'django-registration' do
+    virtualenv node['pgd']['virtualenv']
+    action :uninstall
+  end
+  
+  python_pip 'django-registration' do
+    virtualenv node['pgd']['virtualenv']
+    action :install
+    version "0.8"
+  end
+  
+  pythonpackages = %w[mysql-python cairocffi simplejson]
+  
+  pythonpackages.each do |p|
+    python_pip p do
+      virtualenv node['pgd']['virtualenv']
+      action :install
+    end
+  end
 else
   log " NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPE "
   log " "
