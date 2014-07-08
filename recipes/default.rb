@@ -72,13 +72,13 @@ django_version = `#{django_admin} --version`
 if django_version.chomp == "1.3.7"
   python_pip 'django-registration' do
     virtualenv node['pgd']['virtualenv']
-    action :uninstall
+    action :remove
   end
   
   python_pip 'django-registration' do
     virtualenv node['pgd']['virtualenv']
     action :install
-    version "0.8"
+    version '0.8'
   end
   
   pythonpackages = %w[mysql-python cairocffi simplejson]
