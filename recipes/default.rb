@@ -47,8 +47,6 @@ template config_file do
     :database_host => database_host,
     :database_port => database_port,
     :secret_key =>  secret_key,
-    :google_id => google_id;
+    :google_id => google_id
   })
 end
-
-
