@@ -105,7 +105,7 @@ end
 
 config_file = ::File.join(node['pgd']['config_dir'], 'gunicorn_config.py')
 template config_file do
-  source "gunicorn.py.erb"
+  source "gunicorn_config.py.erb"
   owner node['pgd']['user']
   group node['pgd']['group']
   mode "0644"
