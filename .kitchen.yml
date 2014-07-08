@@ -39,6 +39,6 @@ suites:
     run_list:
      - recipe[yum]
      - recipe[git]
-     - recipt[nginx]
+     - recipe[nginx]
      - recipe[pgd::default]
      - recipe[python::pip]
