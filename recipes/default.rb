@@ -4,6 +4,11 @@ include_recipe "python"
 include_recipe "python::pip"
 include_recipe "git"
 
+user node['pgd']['user'] do
+  home "/home/pgd"
+  shell "/bin/bash"
+end
+
 # Check directory for cloning
 directory node['pgd']['path'] do
   owner node['pgd']['owner']
