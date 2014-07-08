@@ -65,3 +65,8 @@ template config_file do
     :google_id => google_id
   })
 end
+
+django_admin = ::File.join(node['pgd']['virtualenv'], '/bin/django-admin.py')
+django_version = `#{django_admin} --version`
+
+log django_version
