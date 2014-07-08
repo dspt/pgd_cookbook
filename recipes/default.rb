@@ -89,9 +89,31 @@ if django_version.chomp == "1.3.7"
       action :install
     end
   end
+
+  config_file = ::File.join(node['pgd']['config_dir'], 'wsgi.py')
+  template config_file do
+    source "wsgi.py.erb"
+    owner node['pgd']['user']
+    group node['pgd']['group']
+    mode "0644"
+  end
+
 else
-  log " NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPE "
-  log " "
   log django_version
-  log " "
+  # A couple more things to import from Jack's install_pgd.sh
 end
+
+config_file = ::File.join(node['pgd']['config_dir'], 'gunicorn.py')
+template config_file do
+  source "gunicorn.py.erb"
+  owner node['pgd']['user']
+  group node['pgd']['group']
+  mode "0644"
+end
+
+python_pip 'gunicorn' do
+  virtualenv node['pgd']['virtualenv']
+  action :install
+end
+
+package 'nginx'

@@ -20,14 +20,13 @@ default['python']['version'] = "2.7.1"
 default['python']['checksum'] = "80e387bcf57eae8ce26726753584fd63e060ec11682d1145af921e85fd612292"
 
 default['pgd']['database']['engine'] = nil
-# Load the DB Credentials using the databag as defaults.
 default['pgd']['database']['name'] = nil
 default['pgd']['database']['user'] = nil
 default['pgd']['database']['password'] = nil
 default['pgd']['database']['host'] = nil
 default['pgd']['database']['port'] = nil
-
 # secrets
-
 default['pgd']['secret_key'] = nil
 default['pgd']['google_id'] = nil
+
+default['pgd']['gunicorn_address'] = "127.0.0.1:8001"
