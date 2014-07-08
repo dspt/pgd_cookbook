@@ -12,6 +12,8 @@ driver_config:
 
 provisioner:
   name: chef_solo
+  data_bags_path: "test/integration/data_bags"
+  encrypted_data_bag_secret_key_path: "encrypted_data_bag_secret"
   attributes:
     mysql:
       server_root_password: rootpass
