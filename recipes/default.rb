@@ -31,7 +31,7 @@ python_pip node['pgd']['requirements.txt'] do
   action :install
 end
 
-settings = Chef::EncryptedDataBagItem.load("pgd", "settings.py")
+settings = Chef::EncryptedDataBagItem.load("pgd", "settings")
 
 database_engine = node['pgd']['database']['engine'] || settings['database_engine']
 database_name = node['pgd']['database']['name'] || settings['database_name']

@@ -1,4 +1,5 @@
 default['pgd']['path'] = "/var/www/pgd"
+default['pgd']['config_dir'] = "/var/www/pgd/pgd"
 default['pgd']['virtualenv'] = "/var/www/pgd/.venv"
 default['pgd']['requirements.txt'] = "/var/www/pgd/pgd/requirements.txt"
 default['pgd']['user'] = 'pgd'
