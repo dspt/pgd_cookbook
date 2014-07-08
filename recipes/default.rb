@@ -69,7 +69,7 @@ end
 django_admin = ::File.join(node['pgd']['virtualenv'], '/bin/django-admin.py')
 django_version = `#{django_admin} --version`
 
-if django_version == "1.3.7"
+if django_version.chomp == "1.3.7"
   log "1.3.7 ********************"
 else
   log " NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPE "
