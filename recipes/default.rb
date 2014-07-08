@@ -73,4 +73,7 @@ if django_version == "1.3.7"
   log "1.3.7 ********************"
 else
   log " NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPE "
+  log " "
+  log django_version
+  log " "
 end
