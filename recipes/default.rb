@@ -129,10 +129,6 @@ template "#{node['nginx']['dir']}/nginx.conf" do
   mode 00644
 end
 
-nginx_site "#{server_name}.conf" do
-  :enable
-end
-
 package 'supervisor'
 
 template "/etc/supervisord.conf" do
