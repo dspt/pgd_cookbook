@@ -6,7 +6,7 @@ default['pgd']['user'] = 'pgd'
 default['pgd']['group'] = nil
 
 default['pgd']['repository'] = "git://git.osuosl.org/gitolite/pgd.git"
-default['pgd']['branch'] = "develop"
+default['pgd']['branch'] = "master"
 default['pgd']['github_user'] = "git"
 
 default['python']['binary'] = '/opt/python/bin/python2.7'
