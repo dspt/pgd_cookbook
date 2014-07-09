@@ -120,7 +120,7 @@ end
 package 'nginx'
 
 server_name = 'pgd' 
-template "#{node['nginx']['dir']}/sites-available/#{server_name}.conf" do
+template "#{node['nginx']['dir']}/nginx.conf" do
   source "nginx.conf.erb"
   owner "root"
   group "root"
