@@ -30,3 +30,5 @@ default['pgd']['secret_key'] = nil
 default['pgd']['google_id'] = nil
 
 default['pgd']['gunicorn_address'] = "127.0.0.1:8001"
+
+default['phantomjs']['packages'] = []
