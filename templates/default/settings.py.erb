@@ -1,4 +1,5 @@
 import os
+import sys
 
 # Django settings for pgd project.
 
@@ -17,6 +18,8 @@ DATABASES = {
         'PORT' : '<%= @database_port %>',
     }
 }
+if 'test' in sys.argv:
+    DATABASES['default']['OPTIONS'] = {'init_command': 'SET foreign_key_checks=0'}
 
 ##### End Database Configuration #####
 
