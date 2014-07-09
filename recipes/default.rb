@@ -132,3 +132,16 @@ end
 nginx_site "#{server_name}.conf" do
   :enable
 end
+
+package 'supervisor'
+
+template "/etc/supervisord.conf" do
+  source "supervisord.conf.erb"
+  owner "root"
+  group "root"
+  mode 00644
+end
+
+service 'supervisord' do
+  action :restart
+end
