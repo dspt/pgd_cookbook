@@ -42,3 +42,4 @@ suites:
      - recipe[nginx]
      - recipe[pgd::default]
      - recipe[python::pip]
+     - recipe[phantomjs]
