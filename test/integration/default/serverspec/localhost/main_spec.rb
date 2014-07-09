@@ -14,4 +14,6 @@ describe command('/var/www/pgd/.venv/bin/python --version') do
   it { should  return_stdout 'Python 2.7.1' }
 end
 
-
+describe command('grep cairocffi /var/www/pgd/pgd/pgd_search/*/*.py|wc -l') do
+  it { should return_stdout '3' }
+end
