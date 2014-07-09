@@ -30,7 +30,7 @@ serverurl=unix:///var/tmp/supervisor.sock ; use a unix:// URL  for a unix socket
 
 [program:pgd]
 ;command=su -c "$VENV_DIR/bin/gunicorn pgd.wsgi:application -c $VENV_DIR/gunicorn_config.py" - centos
-command=<%= node['pgd']['config_dir'] %>/bin/gunicorn pgd.wsgi:application -c <%= node['pgd']['virtualenv'] %>/gunicorn_config.py
+command=<%= node['pgd']['virtualenv'] %>/bin/gunicorn pgd.wsgi:application -c <%= node['pgd']['config_dir'] %>/gunicorn_config.py
 directory=<%= node['pgd']['config_dir'] %>
 autostart=true
 autorestart=true
