@@ -1,0 +1,31 @@
+events {
+    worker_connections 1024;
+}
+
+http {
+    include mime.types;
+    default_type application/octet-stream;
+    access_log /var/log/nginx/<%= node['pgd']['branch'] %>-access.log combined;
+
+    upstream app_server {
+        server <%= node['pgd']['gunicorn_address'] %> fail_timeout=0;
+    }
+
+    server {
+        listen 80 default;
+        server_name _;
+
+        root <%= node['pgd']['path'] %>;
+	       
+        location / {
+            try_files $uri @django;
+        }
+
+        location @django {
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+            proxy_pass http://app_server;
+        }
+    }
+}

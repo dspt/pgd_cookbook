@@ -98,6 +98,8 @@ if django_version.chomp == '1.3.7'
     group node['pgd']['group']
     mode "0644"
   end
+  
+  `sed -i 's/import cairo/import cairocffi as cairo/' /var/www/pgd/pgd/pgd_search/*/*.py'` 
 
 else
   log django_version

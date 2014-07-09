@@ -1,0 +1,4 @@
+bind = <%= node['pgd']['gunicorn_address'] %>
+errorlog = '/tmp/gunicorn.log'
+loglevel = 'info'
+pythonpath = <%= node['pgd']['config_dir'] %>

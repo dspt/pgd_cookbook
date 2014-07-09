@@ -1,0 +1,6 @@
+import sys
+import os
+sys.path.insert(0,"<%= node['pgd']['config_dir'] %>")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pgd.settings")
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
