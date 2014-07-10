@@ -99,12 +99,15 @@ if django_version.chomp == '1.3.7'
     mode "0644"
   end
 
+  execute 'sed' do
+    command "sed -i 's/import cairo/import cairocffi as cairo/' /var/www/pgd/pgd/pgd_search/*/*.py"
+  end
+
 else
   log django_version
   # A couple more things to import from Jack's install_pgd.sh
 end
 
-`sed -i 's/import cairo/import cairocffi as cairo/' /var/www/pgd/pgd/pgd_search/*/*.py` 
  
 config_file = ::File.join(node['pgd']['config_dir'], 'gunicorn_config.py')
 template config_file do
